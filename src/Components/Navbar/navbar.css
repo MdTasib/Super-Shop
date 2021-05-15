@@ -1,0 +1,19 @@
+.nav-link {
+    margin-right: 30px;
+    color: orange;
+}
+.nav-link:hover {
+    color: #f50057;
+}
+
+.navbar-brand {
+    color: #f50057;
+}
+.navbar-brand:hover {
+    color: orange;
+}
+
+.navbar-brand b {
+    color: orangered;
+    font-size: 40px;
+}
