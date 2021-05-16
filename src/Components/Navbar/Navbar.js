@@ -1,10 +1,23 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import './navbar.css';
 import logo from '../../images/logo.png';
+import { UserContext } from '../../App';
+
 
 const Navbar = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const logOut = () => {
+        const { name, email } = loggedInUser;
+        const logOutUser = {
+            name: '',
+            email: '',
+        }
+        setLoggedInUser(logOutUser);
+    }
+
     return (
         <>
             <nav className="navbar navbar-expand-lg">
@@ -18,7 +31,14 @@ const Navbar = () => {
                             <Link className="nav-link active" aria-current="page" to='/home'>Home</Link>
                             <Link className="nav-link" to='/orders'>Orders</Link>
                             <Link className="nav-link" to='/admin'>Admin</Link>
-                            <Link to='/login'><Button variant="contained" color="secondary">Log in</Button></Link>
+                            <Link to='/login'>
+                                {
+                                    loggedInUser.email ? <Button onClick={logOut} variant="contained" color="secondary">Log Out</Button>
+                                        :
+                                        <Button variant="contained" color="secondary">Log in</Button>
+                                }
+                            </Link>
+                            <p style={{ padding: '7px', color: '#ffa500' }}>{loggedInUser ? loggedInUser.name : ''}</p>
                         </div>
                     </div>
                 </div>

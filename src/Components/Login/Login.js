@@ -15,7 +15,7 @@ if (!firebase.apps.length) {
 
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [user, setUser] = useState({});
+    const [error, setError] = useState('');
     const history = useHistory();
     const location = useLocation();
 
@@ -35,7 +35,7 @@ const Login = () => {
             })
             .catch(error => {
                 const errorMessage = error.message;
-                setUser(errorMessage);
+                setError(errorMessage);
             })
     }
 
@@ -52,7 +52,7 @@ const Login = () => {
             })
             .catch(error => {
                 const errorMessage = error.message;
-                setUser(errorMessage);
+                setError(errorMessage);
             })
     }
 
@@ -64,6 +64,7 @@ const Login = () => {
                     :
                     <Button onClick={googleSingIn} className={styles.button} variant="outlined" color="secondary"><img className={styles.buttonImg} src={google} alt="" /> Google Sing In</Button>
             }
+            <p className='text-danger my-5'>{error}</p>
         </div>
     );
 };
