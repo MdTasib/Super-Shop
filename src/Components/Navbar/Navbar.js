@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import './navbar.css';
+import logo from '../../images/logo.png';
 
 const Navbar = () => {
     return (
         <>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to='/home'><b>S</b>UPER <b>S</b>HOP</Link>
+                    <Link className="navbar-brand" to='/home'><img src={logo} alt="" /> <b>S</b>UPER <b>S</b>HOP</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -29,10 +30,10 @@ const Navbar = () => {
 
 function SearchBox() {
     return (
-        <nav class="navbar navbar-light">
-            <form class="form-inline m-auto">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+        <nav className="navbar navbar-light">
+            <form className="form-inline m-auto">
+                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                <button className="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
     )
