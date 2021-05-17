@@ -13,6 +13,7 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import ManageProduct from "./Components/Admin/ManageProduct";
 import AddProduct from "./Components/Admin/AddProduct";
 import EditProduct from "./Components/Admin/EditProduct";
+import NotMatch from "./Components/NotMatch/NotMatch";
 
 export const UserContext = createContext();
 
@@ -35,20 +36,23 @@ function App() {
             <PrivateRoute path='/orders'>
               <Orders />
             </PrivateRoute>
-            <Route path='/admin'>
-              <Admin />
-            </Route>
-            <Route patch='/admin/manageProduct'>
-              <ManageProduct />
-            </Route>
             <Route patch='/admin/addProduct'>
               <AddProduct />
             </Route>
             <Route patch='/admin/editProduct'>
               <EditProduct />
             </Route>
+            <Route patch='/admin/manageProduct'>
+              <ManageProduct />
+            </Route>
+            <Route path='/admin'>
+              <Admin />
+            </Route>
             <Route path='/login'>
               <Login />
+            </Route>
+            <Route path='*'>
+              <NotMatch />
             </Route>
           </Switch>
         </Router>
