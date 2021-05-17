@@ -1,9 +1,20 @@
 import React from 'react';
+import Sidebar from '../Sidebar/Sidebar';
+import ManageProduct from './ManageProduct';
+import AddProduct from './AddProduct';
+import EditProduct from './EditProduct';
+
 
 const Admin = () => {
     return (
-        <div>
-            this is admin page
+        <div className='row'>
+            <div className="col-md-4">
+                <Sidebar />
+            </div>
+            <div className="col-md-8">
+                {
+                }
+            </div>
         </div>
     );
 };
