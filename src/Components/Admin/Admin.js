@@ -8,6 +8,9 @@ const Admin = () => {
             <div className="col-md-4">
                 <Sidebar />
             </div>
+            <div className="col-md-8">
+                hello
+            </div>
         </div>
     );
 };

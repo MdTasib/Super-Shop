@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -18,9 +19,13 @@ const useStyles = makeStyles({
 });
 
 const Product = ({ product }) => {
-    const { image, name, price } = product;
-
     const classes = useStyles();
+    const { image, name, price, id } = product;
+
+    const history = useHistory();
+    const orderProduct = (id) => {
+        history.push(`/order/${id}`);
+    }
 
     return (
         <div className='col-md-4 my-3'>
@@ -41,7 +46,7 @@ const Product = ({ product }) => {
                     <Typography className='col-md-4 text-danger ml-3' gutterBottom variant="h6" component="h2">
                         {price}
                     </Typography>
-                    <Button className='col-md-6' variant="contained" color="secondary">Buy Now</Button>
+                    <Button onClick={() => orderProduct(id)} className='col-md-6' variant="contained" color="secondary">Buy Now</Button>
                 </CardActions>
             </Card>
         </div>
